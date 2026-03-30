@@ -59,6 +59,16 @@ uv run basedpyright
 python3.11 -m pytest
 ```
 
+Current `Makefile` shortcuts:
+
+```bash
+make format
+make check
+make check-matrix
+make tests
+make prod
+```
+
 ## Documentation
 
 The detailed docs live under `docs/`.

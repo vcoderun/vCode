@@ -12,9 +12,12 @@ First off, thank you for considering contributing to this project!
 
 2. **Install dependencies using `uv`:**
    ```bash
-   uv venv
-   source .venv/bin/activate
-   uv pip install -e ".[dev]"
+   uv sync --extra dev --extra docs
+   ```
+
+   `pip` fallback:
+   ```bash
+   pip install -e ".[dev,docs]"
    ```
 
 3. **Install pre-commit hooks:**
@@ -26,12 +29,14 @@ First off, thank you for considering contributing to this project!
 
 We use a `Makefile` to simplify common tasks:
 
-- `make format`: Formats code using `ruff`.
-- `make check`: Runs linters (`ruff check`) and type checkers (`basedpyright`, `ty`).
-- `make tests`: Runs the test suite using `pytest`.
-- `make all`: Runs formatting and checking consecutively.
+- `make format`: Formats code using `uv run ruff format`.
+- `make check`: Runs the repo-default validation pass with `uv`.
+- `make check-matrix`: Runs `ruff`, `ty`, and `basedpyright` under Python `3.11`, `3.12`, and `3.13`.
+- `make tests`: Runs the test suite using `uv run pytest`.
+- `make all`: Runs `make format` then `make check`.
+- `make prod`: Runs `make tests`, `make format`, and `make check-matrix`.
 
-Before submitting a Pull Request, please ensure `make all` and `make tests` run without any errors.
+Before submitting a Pull Request, ensure `make prod` runs without errors.
 
 ## Pull Requests
 
