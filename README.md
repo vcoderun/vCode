@@ -64,7 +64,7 @@ Common validation commands:
 uv run ruff check
 uv run ty check
 uv run basedpyright
-python3.11 -m pytest
+python3 -m pytest
 ```
 
 Current `Makefile` shortcuts:
